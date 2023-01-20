@@ -18,7 +18,6 @@ provider "yandex" {
 
 resource "yandex_compute_instance" "web" {
   name = "web-server"
-
   resources {
     cores  = 2
     memory = 4
@@ -37,7 +36,9 @@ resource "yandex_compute_instance" "web" {
 
   metadata = {
     user-data = "${file("meta.txt")}"
+    #user-data = "${file("script.sh")}"
   }
+  
 }
 
 
