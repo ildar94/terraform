@@ -35,8 +35,13 @@ resource "yandex_compute_instance" "web" {
   }
 
   metadata = {
-    user-data = "${file("meta.txt")}"
-    #user-data = "${file("script.sh")}"
+    user-data = "${file("meta.txt")}",
+    user-data = "${templatefile("meta.sh.tpl",{
+      f_name = "Ildar"
+      l_name = "Gilyazev"
+      names = ["Ivan", "Nikolay", "Roman", "Olya"]
+    })}"
+    
   }
   
 }

@@ -6,8 +6,3 @@ users:
     sudo: ['ALL=(ALL) NOPASSWD:ALL']
     ssh_authorized_keys:
       - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCyu7Dzh53mmkSLN+AbxnDWzCfq9hWuc0bbEL9QUUmGicp5X56vmVXhbHx1fuI/EVT3JiyAJv+sp1pZMRkNQCj8vvASlNhwHvk0nMGZ5Y6jsj8m2oA9+QmFlN6nD2fUhdW8RtksKvUo3+QagsTKM5811ViQPVbAXgct9/Bsf4Vwwv5oXawAjg4mo1OU7MxUsCy5QBYGKhHxBcHsS66eGSq6Oo8TELlqZTi46o2iWt1940n5Rikk1xGXSNh7iYwnCs4CRlNrMZX0PjwdXxSCtr1fNmOvq5hdCOYV7QwcwOn/yD6oVP4adoPD5cmR3uLKLBzZyBg0NwW04I14Mi224UBYisKpf39LuFISmvQlf/r/loNkOpzkWBq1i3Hcgf4ZOxHqmWGr5r9nm/czNno6SgbvXxG3UdZu9dTpgmCB26vMB4wq+7EF9KFnrLGOdRG9Dlgk1BhN2/dy/6t9C3VnBa+iXqwf0WiHBR5pr/6kxKhbC25UEF4AB7PJSyJCa0nrLPE= I.Gilyazev@yandex.ru
-runcmd:
- - sudo su -
- - touch /var/www/html/index.html
- - echo "<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" /></head><body><h2>Привет</h2><br> <h3>это новая страница тестирует работу скрипта запущеного на сервере посредствам</h3> <h1>terrafom</h1></body></html>" > /var/www/html/index.html
- - service nginx restart
