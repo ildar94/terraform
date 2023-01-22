@@ -17,10 +17,11 @@ provider "yandex" {
 
 
 resource "yandex_compute_instance" "web" {
-  name = "web-server"
+
+  allow_stopping_for_update = true
   resources {
     cores  = 2
-    memory = 4
+    memory = 2
   }
 
   boot_disk {
@@ -39,11 +40,12 @@ resource "yandex_compute_instance" "web" {
     user-data = "${templatefile("meta.sh.tpl",{
       f_name = "Ildar"
       l_name = "Gilyazev"
-      names = ["Ivan", "Nikolay", "Roman", "Olya"]
-    })}"
-    
+      names = ["Ivan", "Nikolay", "Roman", "Olya", "Dasha"]
+    })}"  
   }
-  
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 
@@ -73,4 +75,8 @@ resource "yandex_dns_recordset" "rs1" {
   type    = "CNAME"
   ttl     = 200
   data    = ["testlemp.com."]
+}
+
+output "web_id" {
+  value = yandex_compute_instance.web
 }
